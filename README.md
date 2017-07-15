@@ -1,6 +1,4 @@
-## xml-crypto
-
-[![Build Status](https://travis-ci.org/yaronn/xml-crypto.png?branch=master)](https://travis-ci.org/yaronn/xml-crypto)
+## xml-crypto-forked
 
 An xml digital signature library for node. Xml encryption is coming soon. Written in pure javascript!
 
@@ -9,7 +7,7 @@ For more information visit [my blog](http://webservices20.blogspot.com/) or [my 
 ## Install
 Install with [npm](http://github.com/isaacs/npm):
 
-    npm install xml-crypto
+    npm install xml-crypto-forked
 
 A pre requisite it to have [openssl](http://www.openssl.org/) installed and its /bin to be on the system path. I used version 1.0.1c but it should work on older versions too.
 
@@ -44,7 +42,7 @@ by default the following algorithms are used:
 
 *Signature Algorithm:* RSA-SHA1 http://www.w3.org/2000/09/xmldsig#rsa-sha1
 
-[You are able to extend xml-crypto with custom algorithms.](#customizing-algorithms)
+[You are able to extend xml-crypto-forked with custom algorithms.](#customizing-algorithms)
 
 
 ## Signing Xml documents
@@ -59,7 +57,7 @@ When signing a xml document you can specify the following properties on a `Signe
 Use this code:
 
 `````javascript
-	var SignedXml = require('xml-crypto').SignedXml	  
+	var SignedXml = require('xml-crypto-forked').SignedXml	  
 	  , fs = require('fs')
 
 	var xml = "<library>" +
@@ -118,10 +116,10 @@ You can use any dom parser you want in your code (or none, depending on your usa
 Example:
 
 `````javascript
-	var select = require('xml-crypto').xpath
+	var select = require('xml-crypto-forked').xpath
 	  , dom = require('xmldom').DOMParser
-	  , SignedXml = require('xml-crypto').SignedXml
-	  , FileKeyInfo = require('xml-crypto').FileKeyInfo  
+	  , SignedXml = require('xml-crypto-forked').SignedXml
+	  , FileKeyInfo = require('xml-crypto-forked').FileKeyInfo  
 	  , fs = require('fs')
 
 	var xml = fs.readFileSync("signed.xml").toString()
@@ -132,7 +130,7 @@ Example:
 	sig.keyInfoProvider = new FileKeyInfo("client_public.pem")
 	sig.loadSignature(signature)
 	var res = sig.checkSignature(xml)
-	if (!res) console.log(sig.validationErrors)	
+	if (!res) console.log(sig.validationErrors)
 `````
 
 if the verification process fails `sig.validationErrors` will have the errors.
@@ -148,7 +146,7 @@ In order to protect from some attacks we must check the content we want to use i
 
 Note:
 
-The xml-crypto api requires you to supply it separately the xml signature ("&lt;Signature&gt;...&lt;/Signature&gt;", in loadSignature) and the signed xml (in checkSignature). The signed xml may or may not contain the signature in it, but you are still required to supply the signature separately.
+The xml-crypto-forked api requires you to supply it separately the xml signature ("&lt;Signature&gt;...&lt;/Signature&gt;", in loadSignature) and the signed xml (in checkSignature). The signed xml may or may not contain the signature in it, but you are still required to supply the signature separately.
 
 
 ## API
@@ -206,7 +204,7 @@ The following sample shows how to sign a message using custom algorithms.
 First import some modules:
 
 `````javascript
-	var SignedXml = require('xml-crypto').SignedXml
+	var SignedXml = require('xml-crypto-forked').SignedXml
 	  , fs = require('fs')
 `````
 
@@ -341,7 +339,7 @@ You can always look at the actual code as a sample (or drop me a [mail](mailto:y
 
 
 ## X.509 / Key formats
-Xml-Crypto internally relies on node's crypto module. This means pem encoded certificates are supported. So to sign an xml use key.pem that looks like this (only the begining of the key content is shown):
+xml-crypto-forked internally relies on node's crypto module. This means pem encoded certificates are supported. So to sign an xml use key.pem that looks like this (only the begining of the key content is shown):
 
 	-----BEGIN PRIVATE KEY-----
 	MIICdwIBADANBgkqhkiG9w0...
@@ -366,9 +364,9 @@ Then you could use the result as is for the purpose of signing. For the purpose 
 - [how to sign a root node](#) *coming soon*
 
 ###how to add a prefix for the signature###
-Use the `prefix` option when calling `computeSignature` to add a prefix to the signature. 
+Use the `prefix` option when calling `computeSignature` to add a prefix to the signature.
 `````javascript
-var SignedXml = require('xml-crypto').SignedXml	  
+var SignedXml = require('xml-crypto-forked').SignedXml	  
   , fs = require('fs');
 
 var xml = "<library>" +
@@ -386,15 +384,15 @@ sig.computeSignature(xml,{
 `````
 
 ###how to specify the location of the signature###
-Use the `location` option when calling `computeSignature` to move the signature around. 
-Set `action` to one of the following: 
+Use the `location` option when calling `computeSignature` to move the signature around.
+Set `action` to one of the following:
 - append(default) - append to the end of the xml document
 - prepend - prepend to the xml document
 - before - prepend to a specific node (use the `referenceNode` property)
 - after - append to specific node (use the `referenceNode` property)
 
 `````javascript
-var SignedXml = require('xml-crypto').SignedXml	  
+var SignedXml = require('xml-crypto-forked').SignedXml	  
   , fs = require('fs');
 
 var xml = "<library>" +
@@ -421,8 +419,6 @@ The test framework is [nodeunit](https://github.com/caolan/nodeunit). To run tes
 ## More information
 Visit my [blog](http://webservices20.blogspot.com/) or my [twitter](http://twitter.com/#!/YaronNaveh)
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yaronn/xml-crypto/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## License
 

@@ -26,7 +26,7 @@ module.exports = {
   },
 
   "signer appends signature to the root node by default": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>"
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>"
     var sig = new SignedXml()
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem")
@@ -40,7 +40,7 @@ module.exports = {
   },
 
   "signer appends signature to a reference node": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>"
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>"
     var sig = new SignedXml()
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem")
@@ -61,7 +61,7 @@ module.exports = {
   },
 
   "signer prepends signature to a reference node": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>"
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>"
     var sig = new SignedXml()
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem")
@@ -82,7 +82,7 @@ module.exports = {
   },
 
   "signer inserts signature before a reference node": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>"
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>"
     var sig = new SignedXml()
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem")
@@ -103,7 +103,7 @@ module.exports = {
   },
 
   "signer inserts signature after a reference node": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>"
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>"
     var sig = new SignedXml()
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem")
@@ -520,7 +520,7 @@ module.exports = {
   },
 
   "signer appends signature to a non-existing reference node": function(test) {
-    var xml = "<root><name>xml-crypto</name><repository>github</repository></root>";
+    var xml = "<root><name>xml-crypto-forked</name><repository>github</repository></root>";
     var sig = new SignedXml();
 
     sig.signingKey = fs.readFileSync("./test/static/client.pem");
@@ -644,7 +644,7 @@ function verifyAddsId(test, mode, nsMode) {
 }
 
 function verifyAddsAttrs(test) {
-  var xml = "<root xmlns=\"ns\"><name>xml-crypto</name><repository>github</repository></root>"
+  var xml = "<root xmlns=\"ns\"><name>xml-crypto-forked</name><repository>github</repository></root>"
   var sig = new SignedXml()
   var attrs = {
     Id: 'signatureTest',

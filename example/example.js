@@ -1,7 +1,7 @@
-var select = require('xml-crypto').xpath
+var select = require('xml-crypto-forked').xpath
   , dom = require('xmldom').DOMParser
-  , SignedXml = require('xml-crypto').SignedXml
-  , FileKeyInfo = require('xml-crypto').FileKeyInfo  
+  , SignedXml = require('xml-crypto-forked').SignedXml
+  , FileKeyInfo = require('xml-crypto-forked').FileKeyInfo  
   , fs = require('fs')
 
 function signXml(xml, xpath, key, dest)

@@ -67,7 +67,7 @@ module.exports = {
 
     var xml = fs.readFileSync('./test/static/windows_store_signature.xml', 'utf-8');        
 
-    // Make sure that whitespace in the source document is removed -- see xml-crypto issue #23 and post at
+    // Make sure that whitespace in the source document is removed -- see xml-crypto-forked issue #23 and post at
     //   http://webservices20.blogspot.co.il/2013/06/validating-windows-mobile-app-store.html
     // This regex is naive but works for this test case; for a more general solution consider 
     //   the xmldom-fork-fixed library which can pass {ignoreWhiteSpace: true} into the Dom constructor.
